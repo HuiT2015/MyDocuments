@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
+//线性栈数据结构
 public class MySeqStack<M>{
 
 	private static int STACK_SIZE=100;
