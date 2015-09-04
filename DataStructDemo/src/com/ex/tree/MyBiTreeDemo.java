@@ -50,8 +50,6 @@ public final class MyBiTreeDemo<T>{
 		int top=0;
 		bitTree=new BiTree('A',null,null);
 		p=bitTree;
-	//	char []chArray={'A','B','C','D','E','F','G','H'};
-		//Random random=new Random();
 		while (p!=null||top>0) {
 			while (p!=null) {
 				stack[top++]=p;

@@ -2,6 +2,12 @@ package com.ex.stack;
 
 public class LinkedStack<T> {
 	
+	/**
+	 * 定义一个链式栈的数据结构
+	 * @author lenovo
+	 *
+	 * @param <T>
+	 */
 	static class LinkedNode<T>
 	{
 		T data;
@@ -13,6 +19,7 @@ public class LinkedStack<T> {
 		
 	}
 	
+	//顶一个栈顶指针
 	public LinkedNode<T> top=null;
 	
 	/**

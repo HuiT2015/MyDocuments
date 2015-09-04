@@ -5,71 +5,81 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-//线性栈数据结构
-public class MySeqStack<M>{
+public class MySeqStack<M> {
 
-	private static int STACK_SIZE=100;
-	
-	private static class SeqStack<T>
-	{
-		T []stack=(T[]) new Object[STACK_SIZE];
+	// 定义一个线性栈的容量常值
+	private static int STACK_SIZE = 100;
+
+	// 定义线性栈的数据结构
+	private static class SeqStack<T> {
+		T[] stack = (T[]) new Object[STACK_SIZE];
 		int top;
 	}
+
+	// 定义一个线性栈
 	private SeqStack<M> seqStack;
-	
+
+	// 初始化线性栈
 	private void initSeqStack() {
-		if (seqStack==null) {
-			seqStack=new SeqStack<M>();
+		if (seqStack == null) {
+			seqStack = new SeqStack<M>();
 		}
 	}
-	
+
 	/**
 	 * 进栈操作
+	 * 
 	 * @param e
 	 */
 	private void push(M e) {
-		if (seqStack.top==STACK_SIZE) {
+		if (seqStack.top == STACK_SIZE) {
 			System.out.println("线性栈已满员，需要扩容!");
-			STACK_SIZE*=2;
-			seqStack.stack=(M[]) new Object[STACK_SIZE];
+			STACK_SIZE *= 2;
+			seqStack.stack = (M[]) new Object[STACK_SIZE];
 		}
-		seqStack.stack[seqStack.top++]=e;
+		seqStack.stack[seqStack.top++] = e;
 	}
-	
+
 	/**
 	 * 栈顶元素出栈
+	 * 
 	 * @return
 	 */
 	private M pop() {
 		return seqStack.stack[--seqStack.top];
 	}
-	
-	public static void main(String []args) {
-		MySeqStack<Integer> mySeqStack=new MySeqStack<Integer>();
+
+	/**
+	 * 主函数
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		MySeqStack<Integer> mySeqStack = new MySeqStack<Integer>();
 		System.out.println("建立线性栈...");
 		mySeqStack.initSeqStack();
-		int stackCapacity=-1;
+		int stackCapacity = -1;
 		try {
-			BufferedReader bufferedReader=new BufferedReader(new FileReader("stack.txt"));
+			BufferedReader bufferedReader = new BufferedReader(new FileReader("stack.txt"));
 			try {
-				String []strArr=bufferedReader.readLine().split(" ");
-				stackCapacity=Integer.parseInt(strArr[0]);
+				String[] strArr = bufferedReader.readLine().split(" ");
+				stackCapacity = Integer.parseInt(strArr[0]);
 				for (int i = 0; i < stackCapacity; i++) {
-					mySeqStack.push(Integer.parseInt(strArr[i+1]));
+					mySeqStack.push(Integer.parseInt(strArr[i + 1]));
 				}
 				bufferedReader.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("打印线性栈...");
 		for (int i = 0; i < stackCapacity; i++) {
-			System.out.print(mySeqStack.pop()+" ");
+			System.out.print(mySeqStack.pop() + " ");
 		}
 	}
 }

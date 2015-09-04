@@ -100,8 +100,7 @@ public class MyLinkedQueue<M> {
 		myLinkedQueuey.initLinkedQueue();
 		int queueSize = -1;
 		try {
-			BufferedReader bufferedReader = new BufferedReader(new FileReader(
-					"queue.txt"));
+			BufferedReader bufferedReader = new BufferedReader(new FileReader("queue.txt"));
 			try {
 				String[] strArr = bufferedReader.readLine().split(" ");
 				queueSize = Integer.parseInt(strArr[0]);
