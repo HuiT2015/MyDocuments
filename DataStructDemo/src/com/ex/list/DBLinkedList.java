@@ -1,7 +1,5 @@
 package com.ex.list;
 
-import sun.net.www.content.text.plain;
-
 public class DBLinkedList<T> {
 
 	/**
